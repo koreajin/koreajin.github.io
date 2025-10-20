@@ -39,7 +39,7 @@ googleplus_link: http://plus.google.com
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-livereload
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
