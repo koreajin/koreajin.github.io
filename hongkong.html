@@ -1,0 +1,354 @@
+---
+layout: default_style
+title: Hong Kong
+permalink: /hongkong/
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hong Kong Vibe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+
+/* Full page background */
+body {
+  background: linear-gradient(135deg, rgba(151, 168, 241, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%), 
+              url('/assets/img/slider/nighthk.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Hong Kong themed styles */
+.hk-hero {
+  background: transparent;
+  color: white;
+  padding: 200px 0 80px;
+  text-align: center;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/*
+.hk-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hk-title, .hk-subtitle {
+  position: relative;
+  z-index: 2;  /* 투명창보다 위 레이어 
+}*/
+
+.hk-title {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
+}
+
+.hk-subtitle {
+  font-size: 26px;
+  color: white;
+  text-align: center;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  font-weight: 300;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: translateY(-5px);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced description card styles */
+.description-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+  border-radius: 0 0 15px 15px;
+  padding: 25px 20px;
+  margin-top: -5px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.description-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.description-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+}
+
+.description-title {
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.description-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.4s ease;
+}
+
+.description-card:hover .description-title::after {
+  width: 100%;
+}
+
+.description-text {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.description-card:hover .description-text {
+  color: #333;
+  opacity: 1;
+}
+
+/* Icon enhancement */
+.description-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.description-card:hover .description-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .description-card {
+    padding: 20px 15px;
+  }
+  
+  .description-title {
+    font-size: 20px;
+  }
+  
+  .description-text {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero Section - Full Width -->
+<div class="hk-hero">
+  <div class="hk-title">Hong Kong Vibe</div>
+  
+</div>
+
+<!-- Hong Kong page content-->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:40px;background:rgba(255,255,255,0.05);border-radius:20px;backdrop-filter:blur(5px)">
+
+  <!-- 첫번째 홍콩 그리드 -->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/hongbus.jpg" alt="Hong Kong Skyline" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 스카이라인<br><small>HK Skyline</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🏙️</span>
+        <p class="description-title">홍콩 버스 투어</p>
+        <p class="description-text">홍콩의 유명한 2층 버스를 타고 도시 곳곳의 명소들을 편리하게 둘러보세요. 센트럴부터 침사추이까지!</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/hknoodle.jpg" alt="Hong Kong Info" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 국수<br><small>HK Noodles</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🍜</span>
+        <p class="description-title">홍콩식 국수</p>
+        <p class="description-text">진한 육수와 쫄깃한 면발이 일품인 홍콩 전통 국수. 완탄면과 우동면의 깊은 맛을 경험해보세요!</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/ramen.jpg" alt="Hong Kong Food" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 라멘<br><small>HK Ramen</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🍲</span>
+        <p class="description-title">홍콩 퓨전 라멘</p>
+        <p class="description-text">동서양 요리의 만남! 홍콩만의 독특한 스타일로 재해석된 라멘을 맛보세요. 새로운 맛의 발견!</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/bus.jpg" alt="Hong Kong Streets" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 교통<br><small>HK Transport</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🚌</span>
+        <p class="description-title">홍콩 대중교통</p>
+        <p class="description-text">옥토퍼스 카드 하나로 지하철, 버스, 트램, 페리까지! 홍콩의 편리한 교통시스템을 활용해보세요.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 두번째 홍콩 그리드 -->
+  <div class="w3-row-padding w3-padding-16 w3-center" style="margin-top:40px;">
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/eggtarts.jpg" alt="Hong Kong Nature" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 자연<br><small>HK Nature</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🥾</span>
+        <p class="description-title">홍콩 자연 하이킹</p>
+        <p class="description-text">빅토리아 피크부터 용의 등까지! 도시 한복판에서 즐기는 트레킹으로 홍콩의 숨겨진 자연 풍경을 만나보세요.</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/hk1.jpg" alt="Hong Kong Holiday" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 휴가<br><small>HK Holiday</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🏖️</span>
+        <p class="description-title">홍콩 완벽한 휴가</p>
+        <p class="description-text">도심 속 럭셔리 호텔부터 란타우 섬의 평온한 리조트까지! 당신만의 완벽한 홍콩 휴가를 설계해보세요.</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/dessert.jpg" alt="Hong Kong Night" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">홍콩 야경<br><small>HK Night View</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🌃</span>
+        <p class="description-title">세계 3대 야경</p>
+        <p class="description-text">매일 밤 8시! 심포니 오브 라이츠와 함께하는 빅토리아 하버의 장관. 세계가 인정한 홍콩 야경의 진짜 매력!</p>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="image-container">
+        <img src="/assets/img/slider/nighthk.jpg" alt="Hong Kong Fusion" style="width:100%;height:300px;object-fit:cover;">
+        <div class="image-overlay">
+          <div class="overlay-text">퓨전 음식<br><small>Fusion Food</small></div>
+        </div>
+      </div>
+      <div class="description-card">
+        <span class="description-icon">🍽️</span>
+        <p class="description-title">홍콩 퓨전 요리</p>
+        <p class="description-text">미슐랭 스타부터 스트리트 푸드까지! 광동 요리와 서양 기법이 만나 탄생한 홍콩만의 특별한 맛의 여정!</p>
+      </div>
+    </div>
+  </div>
+
+ 
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+---
+layout: default_style
+title: Nuri
+permalink: /nuri/
+---
+
+
+<!-- Slider controls script -->
+<script>
+  (function(){
+    function scrollByOffset(el, offset){
+      el.scrollBy({left: offset, behavior:'smooth'});
+    }
+
+    document.querySelectorAll('.slider-wrapper').forEach(function(wrapper){
+      var prev = wrapper.querySelector('.slider-btn.prev');
+      var next = wrapper.querySelector('.slider-btn.next');
+      var slider = wrapper.querySelector('.slider');
+      if(!slider) return;
+      var step = Math.round(slider.clientWidth * 0.7) || 300; // fallback
+      if(prev) prev.addEventListener('click', function(){ scrollByOffset(slider, -step); });
+      if(next) next.addEventListener('click', function(){ scrollByOffset(slider, step); });
+    });
+  })();
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+</head>
+<body>
+<!-- Nuri page content: leave header/footer to the layout -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+  <!-- 첫번째 사진 그리드-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <img src="/assets/img/slider/dollhar.jpg" alt="dollhar" style="width:100%">
+      <div class="w3-container w3-white">
+        <p><b>돌하르방</b></p>
+        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      </div>
+    </div>
+      <!-- 첫번째 가로 슬라이더 -->
+      <div class="slider-wrapper">
+        <button class="slider-btn prev" data-target="slider1">‹</button>
+        <div class="slider" id="slider1" role="list">
+          <div class="slide-item">
+            <img src="/assets/img/slider/dollhar.jpg" alt="dollhar">
+            <div class="slide-caption"><b>돌하르방</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/road.jpg" alt="road">
+            <div class="slide-caption"><b>도로</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/bada.jpg" alt="bada">
+            <div class="slide-caption"><b>해안</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/horse.jpg" alt="horse">
+            <div class="slide-caption"><b>말</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/corncake.jpg" alt="corncake">
+            <div class="slide-caption"><b>케이크</b><p>Sweet vibe.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/pizza.jpg" alt="pizza">
+            <div class="slide-caption"><b>피자</b><p>Pizza vibe.</p></div>
+          </div>
+        </div>
+        <button class="slider-btn next" data-target="slider1">›</button>
+      </div>
+
+      <!-- 두번째 가로 슬라이더 -->
+      <div class="slider-wrapper">
+        <button class="slider-btn prev" data-target="slider2">‹</button>
+        <div class="slider" id="slider2" role="list">
+          <div class="slide-item">
+            <img src="/assets/img/slider/set.jpg" alt="set">
+            <div class="slide-caption"><b>세트</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/noodle.jpg" alt="noodle">
+            <div class="slide-caption"><b>국수</b><p>Delicious.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/tree.jpg" alt="tree">
+            <div class="slide-caption"><b>나무</b><p>Nature.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/nuri.jpg" alt="nuri">
+            <div class="slide-caption"><b>누리</b><p>Local special.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/hk1.jpg" alt="hk1">
+            <div class="slide-caption"><b>Hong Kong</b><p>City vibe.</p></div>
+          </div>
+          <div class="slide-item">
+            <img src="/assets/img/slider/snowman.jpg" alt="snowman">
+            <div class="slide-caption"><b>눈사람</b><p>Winter.</p></div>
+          </div>
+        </div>
+        <button class="slider-btn next" data-target="slider2">›</button>
+      </div>
+
+
+

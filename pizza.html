@@ -1,0 +1,403 @@
+---
+layout: default_style
+title: Pizza Vibe
+permalink: /pizza/
+---
+
+<style>
+/* Full page background */
+body {
+  background: linear-gradient(135deg, rgba(255, 99, 71, 0.6) 0%, rgba(255, 140, 0, 0.6) 100%), 
+              url('/assets/img/slider/pizza.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Pizza themed styles */
+.pizza-hero {
+  background: transparent;
+  color: white;
+  padding: 150px 0 80px;
+  text-align: center;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.pizza-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.pizza-title, .pizza-subtitle {
+  position: relative;
+  z-index: 2;
+}
+
+.pizza-title {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
+}
+
+.pizza-subtitle {
+  font-size: 26px;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  font-weight: 300;
+}
+
+/* Pizza Gallery Grid */
+.pizza-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
+}
+
+.pizza-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+  height: 250px;
+}
+
+.pizza-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.pizza-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pizza-card:hover img {
+  transform: scale(1.1);
+}
+
+
+
+.pizza-name {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #d2691e;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.pizza-description {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Masonry-like layout for natural placement */
+.pizza-card:nth-child(1) { grid-row: span 1; }
+.pizza-card:nth-child(2) { grid-row: span 1; }
+.pizza-card:nth-child(3) { grid-row: span 1; }
+.pizza-card:nth-child(4) { grid-row: span 1; }
+.pizza-card:nth-child(5) { grid-row: span 1; }
+.pizza-card:nth-child(6) { grid-row: span 1; }
+.pizza-card:nth-child(7) { grid-row: span 1; }
+.pizza-card:nth-child(8) { grid-row: span 1; }
+.pizza-card:nth-child(9) { grid-row: span 1; }
+
+/* Staggered animation on load */
+.pizza-card {
+  animation: pizzaFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.pizza-card:nth-child(1) { animation-delay: 0.1s; }
+.pizza-card:nth-child(2) { animation-delay: 0.2s; }
+.pizza-card:nth-child(3) { animation-delay: 0.3s; }
+.pizza-card:nth-child(4) { animation-delay: 0.4s; }
+.pizza-card:nth-child(5) { animation-delay: 0.5s; }
+.pizza-card:nth-child(6) { animation-delay: 0.6s; }
+.pizza-card:nth-child(7) { animation-delay: 0.7s; }
+.pizza-card:nth-child(8) { animation-delay: 0.8s; }
+.pizza-card:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes pizzaFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pizza-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px 10px;
+  }
+  
+  .pizza-title {
+    font-size: 2.5em;
+  }
+  
+  .pizza-subtitle {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .pizza-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ton Section Styles */
+.ton-section {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.8) 0%, rgba(160, 82, 45, 0.8) 100%), 
+              url('/assets/img/slider/ton4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 80px 0;
+  margin: 0 calc(-50vw + 50%);
+  width: 100vw;
+  position: relative;
+}
+
+.ton-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.ton-hero {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.ton-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+  letter-spacing: 1px;
+}
+
+.ton-subtitle {
+  font-size: 22px;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  font-weight: 300;
+}
+
+.ton-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.ton-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+  height: 220px;
+}
+
+.ton-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+.ton-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ton-card:hover img {
+  transform: scale(1.15);
+}
+
+
+
+.ton-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #8B4513;
+  margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.ton-description {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Ton cards animation */
+.ton-card {
+  animation: tonFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.ton-card:nth-child(1) { animation-delay: 0.2s; }
+.ton-card:nth-child(2) { animation-delay: 0.4s; }
+.ton-card:nth-child(3) { animation-delay: 0.6s; }
+.ton-card:nth-child(4) { animation-delay: 0.8s; }
+.ton-card:nth-child(5) { animation-delay: 1.0s; }
+
+@keyframes tonFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive for ton section */
+@media (max-width: 768px) {
+  .ton-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .ton-title {
+    font-size: 2.5em;
+  }
+  
+  .ton-subtitle {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .ton-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- Hero Section - Full Width -->
+<div class="pizza-hero">
+  <div class="pizza-title">Pizza Vibe</div>
+  
+</div>
+
+<!-- Pizza Gallery -->
+<div class="pizza-gallery">
+  
+  <!-- Pizza 1 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza.jpg" alt="Margherita Pizza">
+  </div>
+
+  <!-- Pizza 2 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza2.jpg" alt="Pepperoni Pizza">
+  </div>
+
+  <!-- Pizza 3 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza3.jpg" alt="Vegetable Pizza">
+  </div>
+
+  <!-- Pizza 4 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza4.jpg" alt="Meat Lovers Pizza">
+  </div>
+
+  <!-- Pizza 5 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza5.jpg" alt="Hawaiian Pizza">
+  </div>
+
+  <!-- Pizza 6 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza6.jpg" alt="Seafood Pizza">
+  </div>
+
+  <!-- Pizza 7 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza7.jpg" alt="Four Cheese Pizza">
+  </div>
+
+  <!-- Pizza 8 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza8.jpg" alt="BBQ Chicken Pizza">
+  </div>
+
+  <!-- Pizza 9 -->
+  <div class="pizza-card">
+    <img src="/assets/img/slider/pizza9.jpg" alt="Gourmet Pizza">
+  </div>
+
+</div>
+
+<!-- Ton Section -->
+<div class="ton-section">
+  <div class="ton-hero">
+    
+  </div>
+
+  <div class="ton-gallery">
+    
+    <!-- Ton 1 -->
+    <div class="ton-card">
+      <img src="/assets/img/slider/ton1.jpg" alt="Ton 1">
+    </div>
+
+    <!-- Ton 2 -->
+    <div class="ton-card">
+      <img src="/assets/img/slider/ton2.jpg" alt="Ton 2">
+    </div>
+
+    <!-- Ton 3 -->
+    <div class="ton-card">
+      <img src="/assets/img/slider/ton3.jpg" alt="Ton 3">
+    </div>
+
+    <!-- Ton 4 -->
+    <div class="ton-card">
+      <img src="/assets/img/slider/ton4.jpg" alt="Ton 4">
+    </div>
+
+    <!-- Ton 5 -->
+    <div class="ton-card">
+      <img src="/assets/img/slider/ton5.jpg" alt="Ton 5">
+    </div>
+
+  </div>
+</div>
