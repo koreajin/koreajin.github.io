@@ -15,11 +15,13 @@ permalink: /nuri/
 .slider {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   gap: 20px;
   padding: 20px 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
 }
 
 .slider::-webkit-scrollbar {
@@ -33,6 +35,7 @@ permalink: /nuri/
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  scroll-snap-align: start;
 }
 
 .slide-item:hover {
@@ -118,21 +121,29 @@ permalink: /nuri/
 
 <!-- Slider controls script -->
 <script>
-  (function(){
-    function scrollByOffset(el, offset){
-      el.scrollBy({left: offset, behavior:'smooth'});
-    }
+document.addEventListener('DOMContentLoaded', function() {
+  function scrollByOffset(el, offset) {
+    el.scrollBy({left: offset, behavior: 'smooth'});
+  }
 
-    document.querySelectorAll('.slider-wrapper').forEach(function(wrapper){
-      var prev = wrapper.querySelector('.slider-btn.prev');
-      var next = wrapper.querySelector('.slider-btn.next');
-      var slider = wrapper.querySelector('.slider');
-      if(!slider) return;
-      var step = Math.round(slider.clientWidth * 0.7) || 300;
-      if(prev) prev.addEventListener('click', function(){ scrollByOffset(slider, -step); });
-      if(next) next.addEventListener('click', function(){ scrollByOffset(slider, step); });
+  // 각 슬라이더 버튼에 이벤트 리스너 추가
+  document.querySelectorAll('.slider-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = this.getAttribute('data-target');
+      var slider = document.getElementById(targetId);
+      
+      if (!slider) return;
+      
+      var step = 320; // 슬라이드 아이템 너비 + gap
+      
+      if (this.classList.contains('prev')) {
+        scrollByOffset(slider, -step);
+      } else if (this.classList.contains('next')) {
+        scrollByOffset(slider, step);
+      }
     });
-  })();
+  });
+});
 </script>
 
 <!-- Nuri page content -->
