@@ -3,6 +3,119 @@ layout: default_style
 title: Nuri
 permalink: /nuri/
 ---
+
+<style>
+/* 슬라이더 스타일 */
+.slider-wrapper {
+  position: relative;
+  margin: 30px 0;
+  padding: 0 40px;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-item {
+  flex: 0 0 300px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.slide-item:hover {
+  transform: translateY(-5px);
+}
+
+.slide-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.slide-caption {
+  padding: 15px;
+  text-align: center;
+}
+
+.slide-caption b {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 16px;
+}
+
+.slide-caption p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+.slider-btn.prev {
+  left: 5px;
+}
+
+.slider-btn.next {
+  right: 5px;
+}
+
+/* 페이지 전체 스타일 */
+.nuri-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px 50px;
+}
+
+.nuri-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.nuri-title h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.nuri-title p {
+  font-size: 18px;
+  color: #666;
+}
+</style>
+
 <!-- Slider controls script -->
 <script>
   (function(){
@@ -15,87 +128,85 @@ permalink: /nuri/
       var next = wrapper.querySelector('.slider-btn.next');
       var slider = wrapper.querySelector('.slider');
       if(!slider) return;
-      var step = Math.round(slider.clientWidth * 0.7) || 300; // fallback
+      var step = Math.round(slider.clientWidth * 0.7) || 300;
       if(prev) prev.addEventListener('click', function(){ scrollByOffset(slider, -step); });
       if(next) next.addEventListener('click', function(){ scrollByOffset(slider, step); });
     });
   })();
 </script>
 
-<!-- Nuri page content: leave header/footer to the layout -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
-  <!-- 첫번째 사진 그리드-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-      <img src="/assets/img/slider/dollhar.jpg" alt="dollhar" style="width:100%">
-      <div class="w3-container w3-white">
-        <p><b>돌하르방</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+<!-- Nuri page content -->
+<div class="nuri-container">
+  <div class="nuri-title">
+    <h1>Nuri Gallery</h1>
+    <p>제주도의 아름다운 풍경과 추억들을 담은 갤러리입니다</p>
+  </div>
+  <!-- 첫번째 가로 슬라이더 -->
+  <div class="slider-wrapper">
+    <h3 style="text-align:center; margin-bottom:20px; color:#333;">제주도 풍경</h3>
+    <button class="slider-btn prev" data-target="slider1">‹</button>
+    <div class="slider" id="slider1">
+      <div class="slide-item">
+        <img src="/assets/img/slider/dollhar.jpg" alt="dollhar">
+        <div class="slide-caption"><b>돌하르방</b><p>제주의 상징적인 돌하르방</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/road.jpg" alt="road">
+        <div class="slide-caption"><b>도로</b><p>제주의 아름다운 길</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/bada.jpg" alt="bada">
+        <div class="slide-caption"><b>해안</b><p>맑고 푸른 제주 바다</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/horse.jpg" alt="horse">
+        <div class="slide-caption"><b>말</b><p>제주 조랑말</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/tree.jpg" alt="tree">
+        <div class="slide-caption"><b>나무</b><p>제주의 자연</p></div>
       </div>
     </div>
-      <!-- 첫번째 가로 슬라이더 -->
-      <div class="slider-wrapper">
-        <button class="slider-btn prev" data-target="slider1">‹</button>
-        <div class="slider" id="slider1" role="list">
-          <div class="slide-item">
-            <img src="/assets/img/slider/dollhar.jpg" alt="dollhar">
-            <div class="slide-caption"><b>돌하르방</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/road.jpg" alt="road">
-            <div class="slide-caption"><b>도로</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/bada.jpg" alt="bada">
-            <div class="slide-caption"><b>해안</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/horse.jpg" alt="horse">
-            <div class="slide-caption"><b>말</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/corncake.jpg" alt="corncake">
-            <div class="slide-caption"><b>케이크</b><p>Sweet vibe.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/pizza.jpg" alt="pizza">
-            <div class="slide-caption"><b>피자</b><p>Pizza vibe.</p></div>
-          </div>
-        </div>
-        <button class="slider-btn next" data-target="slider1">›</button>
-      </div>
+    <button class="slider-btn next" data-target="slider1">›</button>
+  </div>
 
-      <!-- 두번째 가로 슬라이더 -->
-      <div class="slider-wrapper">
-        <button class="slider-btn prev" data-target="slider2">‹</button>
-        <div class="slider" id="slider2" role="list">
-          <div class="slide-item">
-            <img src="/assets/img/slider/set.jpg" alt="set">
-            <div class="slide-caption"><b>세트</b><p>Praesent tincidunt sed tellus ut rutrum.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/noodle.jpg" alt="noodle">
-            <div class="slide-caption"><b>국수</b><p>Delicious.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/tree.jpg" alt="tree">
-            <div class="slide-caption"><b>나무</b><p>Nature.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/nuri.jpg" alt="nuri">
-            <div class="slide-caption"><b>누리</b><p>Local special.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/hk1.jpg" alt="hk1">
-            <div class="slide-caption"><b>Hong Kong</b><p>City vibe.</p></div>
-          </div>
-          <div class="slide-item">
-            <img src="/assets/img/slider/snowman.jpg" alt="snowman">
-            <div class="slide-caption"><b>눈사람</b><p>Winter.</p></div>
-          </div>
-        </div>
-        <button class="slider-btn next" data-target="slider2">›</button>
+  <!-- 두번째 가로 슬라이더 -->
+  <div class="slider-wrapper">
+    <h3 style="text-align:center; margin-bottom:20px; color:#333;">음식 & 여행</h3>
+    <button class="slider-btn prev" data-target="slider2">‹</button>
+    <div class="slider" id="slider2">
+      <div class="slide-item">
+        <img src="/assets/img/slider/nuri.jpg" alt="nuri">
+        <div class="slide-caption"><b>누리</b><p>제주 특산물</p></div>
       </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/set.jpg" alt="set">
+        <div class="slide-caption"><b>세트</b><p>제주 음식 세트</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/noodle.jpg" alt="noodle">
+        <div class="slide-caption"><b>국수</b><p>맛있는 국수</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/corncake.jpg" alt="corncake">
+        <div class="slide-caption"><b>케이크</b><p>달콤한 디저트</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/pizza.jpg" alt="pizza">
+        <div class="slide-caption"><b>피자</b><p>맛있는 피자</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/hk1.jpg" alt="hk1">
+        <div class="slide-caption"><b>Hong Kong</b><p>홍콩 여행</p></div>
+      </div>
+      <div class="slide-item">
+        <img src="/assets/img/slider/snowman.jpg" alt="snowman">
+        <div class="slide-caption"><b>눈사람</b><p>겨울 풍경</p></div>
+      </div>
+    </div>
+    <button class="slider-btn next" data-target="slider2">›</button>
+  </div>
+</div>
 
 
 
