@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
 
+# Ruby 3.3 호환성을 위해 최신 ffi 사용
+gem "ffi", "~> 1.16.3"
+
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-seo-tag", "~> 2.8"
