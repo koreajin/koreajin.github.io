@@ -87,6 +87,14 @@ permalink: /nuri/
   background: rgba(0,0,0,0.9);
 }
 
+.slider-btn:hover[style*="not-allowed"] {
+  background: rgba(0,0,0,0.3) !important;
+}
+
+.slider-btn[style*="rgba(255,0,0"]:hover {
+  background: rgba(255,0,0,0.9) !important;
+}
+
 .slider-btn.prev {
   left: 5px;
 }
@@ -126,6 +134,44 @@ document.addEventListener('DOMContentLoaded', function() {
     el.scrollBy({left: offset, behavior: 'smooth'});
   }
 
+  function updateButtonStates(slider) {
+    var wrapper = slider.closest('.slider-wrapper');
+    var prevBtn = wrapper.querySelector('.slider-btn.prev');
+    var nextBtn = wrapper.querySelector('.slider-btn.next');
+    
+    var scrollLeft = slider.scrollLeft;
+    var maxScroll = slider.scrollWidth - slider.clientWidth;
+    
+    // 처음에 도달했을 때 prev 버튼 비활성화
+    if (scrollLeft <= 0) {
+      prevBtn.style.background = 'rgba(0,0,0,0.3)';
+      prevBtn.style.cursor = 'not-allowed';
+    } else {
+      prevBtn.style.background = 'rgba(0,0,0,0.7)';
+      prevBtn.style.cursor = 'pointer';
+    }
+    
+    // 마지막에 도달했을 때 next 버튼 색상 변경
+    if (scrollLeft >= maxScroll - 1) {
+      nextBtn.style.background = 'rgba(255,0,0,0.7)'; // 빨간색으로 변경
+      nextBtn.style.cursor = 'not-allowed';
+    } else {
+      nextBtn.style.background = 'rgba(0,0,0,0.7)';
+      nextBtn.style.cursor = 'pointer';
+    }
+  }
+
+  // 각 슬라이더에 스크롤 이벤트 리스너 추가
+  document.querySelectorAll('.slider').forEach(function(slider) {
+    // 초기 상태 설정
+    updateButtonStates(slider);
+    
+    // 스크롤 이벤트 리스너
+    slider.addEventListener('scroll', function() {
+      updateButtonStates(this);
+    });
+  });
+
   // 각 슬라이더 버튼에 이벤트 리스너 추가
   document.querySelectorAll('.slider-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -141,6 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (this.classList.contains('next')) {
         scrollByOffset(slider, step);
       }
+      
+      // 버튼 클릭 후 상태 업데이트 (약간의 지연 후)
+      setTimeout(function() {
+        updateButtonStates(slider);
+      }, 300);
     });
   });
 });
